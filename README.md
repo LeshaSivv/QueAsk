@@ -1,3 +1,1 @@
-# README
-
-Second training project
+Question-Answer format forum
