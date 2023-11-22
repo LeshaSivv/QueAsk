@@ -15,7 +15,7 @@ gem 'cssbundling-rails'
 
 gem 'jbuilder'
 
-gem 'kaminari'
+gem 'pagy'
 
 # gem "redis", "~> 4.0"
 
