@@ -5,8 +5,8 @@
 
 <%= link_to 'New question', new_question_path, class: 'mb-3 btn btn-info btn-lg' %>
 
-<%= paginate @questions %>
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1%>
 
 <%= render partial: 'questions/question', collection: @questions, as: :question %>
 
-<%= paginate @questions %>
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>

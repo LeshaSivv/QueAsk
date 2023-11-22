@@ -14,7 +14,7 @@
   </div>
 </article>
 <hr class="my-3">
-<h2>Write your answer</h2>
+<h2 class="text-light">Write your answer</h2>
 
 <%= render 'shared/errors', object: @answer%>
 
@@ -37,8 +37,11 @@
 </div>
 
 <hr class="my-3">
-<h2>Answers</h2>
+<h2 class="text-light"><%= "Answers" if @answers.present? %></h2>
+
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1%>
 
 <%= render partial: "answers/answer", collection: @answers, as: :answer, locals:{question: @question}%>
 
+<%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1%>
 

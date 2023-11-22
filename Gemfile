@@ -21,7 +21,7 @@ gem 'pagy'
 
 # gem "kredis"
 
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3"
 
 gem 'bootsnap', require: false
 
