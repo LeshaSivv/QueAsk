@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:page_title)) %></title>
+    <meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <%= yield :navbar %>
+    <main class="container mt-3">
+      <%= render 'shared/flash' %>
+      <%= yield %>
+    </main>
+  </body>
+</html>

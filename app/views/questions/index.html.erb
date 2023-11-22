@@ -1,0 +1,38 @@
+<% provide :page_title, "All Que" %>
+<% currently_at 'Questions' %>
+
+<h1 class="mb-4 text-light">Questions</h1>
+
+<%= link_to 'New question', new_question_path, class: 'mb-3 btn btn-info btn-lg' %>
+
+
+<%= paginate @questions %>
+
+
+<% @questions.each do |question| %>
+  <article class="card mb-3 mt-3 bg-light">
+    <div class="card-body">
+      <h4><%= question.title %></h2>
+
+      <section class="card-text">
+        <p class="my-2">
+          <%= truncate question.body, length: 100,
+           omission: "......" %>
+        </p>
+
+        <time>
+          <small><%= question.time_formatted %></small>
+        </time>
+      </section>
+
+      <div class="btn-group">
+        <%= link_to 'Show', question_path(question), class: 'btn btn-success' %> 
+        <%= link_to 'Edit', edit_question_path(question), class: 'btn btn-warning' %>
+        <%= link_to 'Delete', question_path(question), class: 'btn btn-danger',
+          data: {method: :delete, confirm: 'Are you sure?'} %>
+      </div>
+    </div>
+  </article>
+<% end %>
+
+<%= paginate @questions %>

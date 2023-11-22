@@ -1,0 +1,20 @@
+@import 'bootstrap';
+
+.field_with_errors {
+  .form-control {
+    border-color: red;
+  }
+  label {
+    color: red;
+  }
+}
+
+body {
+  background: url("https://cojo.ru/wp-content/uploads/2022/12/mnogo-znakov-voprosa-28.webp")
+  no-repeat;
+  height: 100%;
+  width: 100%;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  background-size: 1920px 1200px;
+}
