@@ -1,2 +1,5 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide :page_title, "Sign up" %>
+<% currently_at 'Sign up' %>
+
+<%= render 'users/form', user: @user %>
+
