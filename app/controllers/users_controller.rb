@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :require_no_current_user, only: %i[new create]
+  before_action :require_current_user, only: %i[destroy edit update]
+  before_action :set_user, only: %i[edit show update]
+
   def new
     @user = User.new
   end
@@ -14,22 +18,34 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
+  def show
   end
 
-  def destroy
+  def update
+    if @user.update(user_params)
+      flash[:success] = "Your profile edited successfully!"
+      redirect_to user_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
+  def destroy
+  end
+
+
   def index
   end
 
-  def show
-  end
 
   private
+
+  def set_user
+    @user = User.find(params[:id]).decorate
+  end
 
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation, :email)

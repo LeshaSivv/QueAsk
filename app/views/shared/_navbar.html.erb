@@ -15,11 +15,11 @@
         <% if user_signed_in? %>
           <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
             <li>
-              <%= nav_tab "#{current_user.name_or_email.capitalize}", '#',
+              <%= nav_tab "#{current_user.name_or_email.capitalize}", user_path(current_user),
               class: 'nav-link px-2', current_page: current_page %>
             </li>
             <li>
-              <%= nav_tab 'Log out', session_path, data:{method: :delete},
+              <%= nav_tab 'Sign out', session_path, data:{method: :delete},
               class: 'nav-link px-2' %>
             </li>
           </ul>

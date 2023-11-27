@@ -21,6 +21,20 @@ module Authentication
       @current_user = nil
     end
 
+    def require_current_user
+      return if user_signed_in?
+
+      flash[:warning] = 'You already signed in!'
+      redirect_to root_path
+    end
+
+    def require_no_current_user
+      return unless user_signed_in?
+
+      flash[:warning] = 'You already signed in!'
+      redirect_to root_path
+    end
+
     helper_method :current_user, :user_signed_in?
   end
 end

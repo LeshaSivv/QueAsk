@@ -1,2 +1,6 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1 class="text-white">Edit profile</h1>
+
+<% provide :page_title, "Edit profile" %>
+<% currently_at 'Edit profile' %>
+
+<%= render 'users/form', user: @user %>

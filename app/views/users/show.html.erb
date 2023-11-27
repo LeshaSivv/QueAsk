@@ -1,2 +1,15 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide :page_title, "Your page" %>
+<% currently_at current_user.name_or_email.capitalize %>
+
+<article class="card mt-3 bg-light">
+  <div class="card-body">
+    <h3 class="mb-4"><%= @user.name_or_email.capitalize %></h3>
+      <p><%= @user.email %></p>
+      <p>Создан: <%= @user.time_formatted %></p>
+      <div class="btn-group">
+        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning"%>
+        <%= link_to 'Delete', question_path(@user), class: "btn btn-danger",
+        data: {method: :delete, confirm: 'Sure?'} %>
+      </div>
+  </div>
+</article>
