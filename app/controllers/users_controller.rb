@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params).decorate
     if @user.save
-      session[:user_id] = @user.id
-      flash[:success] = "Welcome to QueAsk, #{@user.name}"
+      sign_in(@user)
+      flash[:success] = "Welcome to QueAsk, #{@user.name_or_email}"
       redirect_to root_path
     else
       render :new

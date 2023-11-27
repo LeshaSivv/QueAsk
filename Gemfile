@@ -9,6 +9,7 @@ gem 'jsbundling-rails'
 gem 'cssbundling-rails'
 gem 'jbuilder'
 gem 'pagy'
+gem 'draper'
 # gem "redis", "~> 4.0"
 # gem "kredis"
 gem "bcrypt", "~> 3"
