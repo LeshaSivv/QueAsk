@@ -20,7 +20,8 @@
         </div>
 
         <div class="col-sm-10">
-          <%= f.email_field :email, placeholder: 'email', class: 'form-control' %>
+          <%= f.email_field :email, placeholder: 'email',
+           class: 'form-control', value: user.email %>
         </div>
       </div>
 

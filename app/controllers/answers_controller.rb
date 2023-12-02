@@ -7,7 +7,9 @@ class AnswersController < ApplicationController
       flash[:success] = 'Answer created!'
       redirect_to question_path(@question, anchor: "ans-#{@answer.id}")
     else
-      @answers = @question.answers.order(created_at: :desc)
+      @question = @question.decorate
+      @pagy, @answers = pagy @question.answers.order(created_at: :desc)
+      @answers = @answers.decorate
       render 'questions/show'
     end
   end
@@ -24,6 +26,7 @@ class AnswersController < ApplicationController
   end
 
   def update
+    @answer = @question.answers.find(params[:id])
     if @answer.update(answer_params)
       flash[:success] = 'Answer updated!'
       redirect_to question_path(@question)

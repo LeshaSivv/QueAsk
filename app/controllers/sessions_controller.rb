@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user&.authenticate(params[:password])
       sign_in(@user)
+      remember(@user) if params[:remember_me] == '1'
       @user = @user.decorate
       flash[:success] = "Welcome back, #{@user.name_or_email}"
       redirect_to root_path
@@ -19,7 +20,7 @@ class SessionsController < ApplicationController
 
   def destroy
     flash[:success] = "See you later"
-    sign_out
+    sign_out(current_user)
     redirect_to root_path
   end
 end

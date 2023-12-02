@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   resources :questions do
     resources :answers, only: %i[create destroy update edit]
   end
+
+  namespace :admin do
+    resources :users, only: %i[index]
+  end
 end

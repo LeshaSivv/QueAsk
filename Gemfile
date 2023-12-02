@@ -14,6 +14,11 @@ gem 'draper'
 # gem "kredis"
 gem "bcrypt", "~> 3"
 gem 'bootsnap', require: false
+gem "valid_email2"
+
+gem 'rubyzip'
+gem 'caxlsx'
+gem 'caxlsx_rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
