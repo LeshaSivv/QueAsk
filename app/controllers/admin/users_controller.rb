@@ -13,6 +13,15 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def create
+    if params[:archive].present?
+      UserService.call params[:archive]
+      flash[:success] = 'Users imported!'
+    end
+
+    redirect_to admin_users_path
+  end
+
   private 
 
   def response_with_zipped_users

@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   attr_accessor :old_password, :remember_token
-
   has_secure_password validations: false
   validate :password_presense
   validate :correct_old_password, on: :update, if: -> { password.present? }
