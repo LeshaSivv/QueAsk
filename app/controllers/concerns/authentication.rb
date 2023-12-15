@@ -45,14 +45,14 @@ module Authentication
     def require_current_user
       return if user_signed_in?
 
-      flash[:warning] = 'You are not signed in!'
+      flash[:warning] = t('global.flash.not_signed_in')
       redirect_to root_path
     end
 
     def require_no_current_user
       return unless user_signed_in?
 
-      flash[:warning] = 'You already signed in!'
+      flash[:warning] = t('global.flash.already_signed_in')
       redirect_to root_path
     end
 

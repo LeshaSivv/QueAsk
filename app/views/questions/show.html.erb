@@ -5,16 +5,16 @@
   <div class="card-body">
     <h3 class="mb-4"><%= @question.title %></h3>
       <p><%= @question.body %></p>
-      <p>Создан: <%= @question.time_formatted %></p>
+      <p><%= @question.time_formatted %></p>
       <div class="btn-group">
-        <%= link_to 'Edit', edit_question_path(@question), class: "btn btn-warning"%>
-        <%= link_to 'Delete', question_path(@question), class: "btn btn-danger",
-        data: {method: :delete, confirm: 'Sure?'} %>
+        <%= link_to t('global.button.edit'), edit_question_path(@question), class: "btn btn-warning"%>
+        <%= link_to t('global.button.delete'), question_path(@question), class: "btn btn-danger",
+        data: {method: :delete, confirm: t('global.dialog.you_sure')} %>
       </div>
   </div>
 </article>
 <hr class="my-3">
-<h2 class="text-light">Write your answer</h2>
+<h2 class="text-light"><%= t('.write_answer') %></h2>
 
 <%= render 'shared/errors', object: @answer%>
 
@@ -31,13 +31,13 @@
         </div>
       </div>
 
-      <%= f.submit "Submit answer!", class: 'btn btn-info' %>
+      <%= f.submit t('global.button.submit'), class: 'btn btn-info' %>
     <% end %>
   </div>
 </div>
 
 <hr class="my-3">
-<h2 class="text-light"><%= "Answers" if @answers.present? %></h2>
+<h2 class="text-light"><%= t('.answers') if @answers.present? %></h2>
 
 <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1%>
 

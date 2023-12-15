@@ -1,6 +1,6 @@
 <%= provide :page_title, "Que\##{@question.id}#edit" %>
 <% currently_at %>
 
-<h2 class="mb-4">Edit Question</h2>
+<h2 class="mb-4"><%= t('.title') %></h2>
 
 <%= render 'form', question: @question %>

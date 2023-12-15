@@ -7,9 +7,9 @@
       <p><%= @user.email %></p>
       <p>Создан: <%= @user.time_formatted %></p>
       <div class="btn-group">
-        <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-warning"%>
-        <%= link_to 'Delete', question_path(@user), class: "btn btn-danger",
-        data: {method: :delete, confirm: 'Sure?'} %>
+        <%= link_to t('global.button.edit'), edit_user_path(@user), class: "btn btn-warning"%>
+        <%= link_to t('global.button.delete'), question_path(@user), class: "btn btn-danger",
+        data: {method: :delete, confirm: t('global.dialog.you_sure')} %>
       </div>
   </div>
 </article>

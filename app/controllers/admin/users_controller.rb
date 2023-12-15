@@ -16,7 +16,7 @@ class Admin::UsersController < ApplicationController
   def create
     if params[:archive].present?
       UserService.call params[:archive]
-      flash[:success] = 'Users imported!'
+      flash[:success] = t('.success')
     end
 
     redirect_to admin_users_path

@@ -1,9 +1,9 @@
 <% provide :page_title, "All Que" %>
-<% currently_at 'Questions' %>
+<% currently_at t('menu.questions') %>
 
-<h1 class="mb-4 text-light">Questions</h1>
+<h1 class="mb-4 text-light"><%= t('.title') %></h1>
 
-<%= link_to 'New question', new_question_path, class: 'mb-3 btn btn-info btn-lg' %>
+<%= link_to t('.new'), new_question_path, class: 'mb-3 btn btn-info btn-lg' %>
 
 <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1%>
 

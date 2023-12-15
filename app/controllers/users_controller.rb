@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :require_no_current_user, only: %i[new create]
-  before_action :require_current_user, only: %i[destroy edit update]
+  before_action :require_current_user, only: %i[show destroy edit update]
   before_action :set_user, only: %i[edit show update]
 
   def new
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params).decorate
     if @user.save
       sign_in(@user)
-      flash[:success] = "Welcome to QueAsk, #{@user.name_or_email}"
+      flash[:success] = t('.success', name: @user.name_or_email)
       redirect_to root_path
     else
       render :new
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Your profile edited successfully!"
+      flash[:success] = t('.success')
       redirect_to edit_user_path(@user)
     else
       render :new
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    debugger
   end
 
   def destroy

@@ -1,5 +1,7 @@
 <% provide :page_title, "Sign up" %>
-<% currently_at 'Sign up' %>
+<% currently_at t('menu.sign_up') %>
+
+<h1 class="text-white"><%= t('.title') %></h1>
 
 <%= render 'users/form', user: @user %>
 
